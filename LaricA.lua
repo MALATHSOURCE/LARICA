@@ -6456,6 +6456,50 @@ end
 Textt = "⟥┆ الحظر العام ↺ "..GBan.."\n⟥┆ الحظر ↺ "..Ban.."\n⟥┆ الكتم ↺ "..Muted..""
 send(msg.chat_id_, msg.id_,Textt)
 end
+end
+    tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = lk_lkid},function(arg,data)
+        new = 0
+        lk_lkid2 = {}
+        for i=0 ,data.total_count_ do
+            if data.messages_[i] and data.messages_[i].content_ and data.messages_[i].content_.ID ~= "MessageText" then
+                lk_lkid2[new] = data.messages_[i].id_
+                new = new + 1
+            end
+        end
+        Delete_Message(msg.chat_id_,lk_lkid2)
+    end,nil)  
+    send(msg.chat_id_, msg.id_,"⌔︙تم ازالة 100 من وسائط 🛡") 
+elseif text and (text == "تنظيف جميع الرسائل المعدله" or text == "تنظيف الرسائل المعدلة" or text == "تنظيف الرسائل المعدله") and Admin(msg) then   
+    lk_lkid = {[0]=msg.id_}
+    local Message = msg.id_
+    for i=1,100 do
+    Message = Message - 1048576
+    lk_lkid[i] = Message
+    end
+    tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = lk_lkid},function(arg,data)
+        new = 0
+        lk_lkid2 = {}
+        for i=0 ,data.total_count_ do
+            if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
+                lk_lkid2[new] = data.messages_[i].id_
+                new = new + 1
+            end
+        end
+        Delete_Message(msg.chat_id_,lk_lkid2)
+    end,nil)  
+    send(msg.chat_id_, msg.id_,'⌔︙تم ازالة 100 رساله معدلة 🛡') 
+elseif text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not redis:get(bot_id..'Status:Lock:Id:Photo'..msg.chat_id_) then
+function Function_Status(extra, result, success)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+if data.first_name_ == false then
+send(msg.chat_id_, msg.id_,'⌔︙ الحساب محذوف لا توجد معلوماته ')
+return false
+end
+if data.username_ then
+UserName_User = '@'..data.username_
+else
+UserName_User = 'لا يوجد'
+end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 end
 if text == "تفعيل تنظيف الوسائط" and Owner(msg)  then
