@@ -4782,7 +4782,8 @@ send(msg.chat_id_,msg.id_,' ['..ta.title_..']('..link..')')
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '🦇• LinK GrOup : ━═━═━═━═━\n ['..ta.title_..']('..linkgpp.result..')'
+linkgp = '🦇• LinK GrOup : 
+━═━═━═━═━\n ['..ta.title_..']('..linkgpp.result..')'
 else
 linkgp = '• لا يوجد رابط ارسل ضع رابط'
 end  
