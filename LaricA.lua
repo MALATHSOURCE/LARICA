@@ -8800,10 +8800,10 @@ Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '𝙨𝙤𝙪𝙧𝙘𝙚 𝙘𝙝𝙖𝙣𝙣𝙚𝙡',url="https://t.me/LaRiCaTeam"},
+{text = '◟ٰSource ᒪِᗩ𝗋𝗂𝖼ِ𝖺 .,url="https://t.me/LaRiCaTeam"},
 },
 {
-{text = '𝙨𝙤𝙪𝙧𝙘𝙚 𝙙𝙚𝙫𝙚𝙡𝙤𝙥𝙚𝙧',url="https://t.me/BBBBRR"},
+{text = '◟ٰᗪE𝗏𝖾𝗅𝗈𝗉𝖾𝗋 .',url="https://t.me/BBBBRR"},
 },
 } 
 local msg_id = msg.id_/2097152/0.5
