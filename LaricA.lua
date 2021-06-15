@@ -39,10 +39,10 @@ port :: ]]..port..[[
 
 time ::]]..Rtime.."\27[m")
 
-io.popen("mkdir files_LaricA")
+io.popen("mkdir LaricA_Files")
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
-for v in io.popen('ls files_LaricA'):lines() do
+for v in io.popen('ls LaricA_Files'):lines() do
 if v:match(".lua$") then
 i = i + 1
 t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
@@ -805,10 +805,10 @@ database:sadd(bot_id.."LaricA:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 return false  
 end
 end  
-function files_LaricA(msg)
-for v in io.popen('ls files_LaricA'):lines() do
+function LaricA_Files(msg)
+for v in io.popen('ls LaricA_Files'):lines() do
 if v:match(".lua$") then
-plugin = dofile("files_LaricA/"..v)
+plugin = dofile("LaricA_Files/"..v)
 if plugin.LaricA and msg then
 pre_msg = plugin.LaricA(msg)
 end
@@ -8239,6 +8239,26 @@ end,nil)
 end
 return false
 end
+if text == "تنظيف التعديل" and Constructor(msg) or text == "حذف التعديل" and Constructor(msg) or text == "مسح التعديل" and Constructor(msg) then
+Msgs = {[0]=msg.id_}
+local Message = msg.id_
+for i=1,100 do
+Message = Message - 1048576
+Msgs[i] = Message
+end
+tdcli_function({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+new = 0
+Msgs2 = {}
+for i=0 ,data.total_count_ do
+if data.messages_[i] and (not data.messages_[i].edit_date_ or data.messages_[i].edit_date_ ~= 0) then
+Msgs2[new] = data.messages_[i].id_
+new = new + 1
+end
+end
+DeleteMessage(msg.chat_id_,Msgs2)
+end,nil)  
+send(msg.chat_id_, msg.id_,'•  تم حذف جميع الرسائل المعدله')
+end
 if text == "تنظيف الكروبات" and DevLaricA(msg) then
 local group = database:smembers(bot_id..'LaricA:Chek:Groups')  
 local w = 0
@@ -8676,9 +8696,9 @@ end,nil)
 end
 end
 if text == 'الملفات' and DevLaricA(msg) then
-t = '• جميع الملفات : \n  - - - - - - - - -\n'
+t = '• جميع الملفات : \n  ━═━═━═━\n'
 i = 0
-for v in io.popen('ls files_LaricA'):lines() do
+for v in io.popen('ls LaricA_Files'):lines() do
 if v:match(".lua$") then
 i = i + 1
 t = t..i..'*~ '..v..'*\n'
@@ -8693,11 +8713,11 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n• اهلا بك في متجر ملفات لاريكا\n• يوجد في المتجر ملف الردود\n• يتم ادراج الملفات في التحديثات القادمه \n  - - - - - - - - -\n"
-local TextE = "\n  - - - - - - - - -\n• تدل علامة (✔) الملف مفعل\n".."• تدل علامة (✖) الملف معطل\n"
+local TextS = "\n• اهلا بك في متجر ملفات لاريكا\n• يوجد في المتجر ملف الردود\n• يتم ادراج الملفات في التحديثات القادمه \n  ━═━═━═━\n"
+local TextE = "\n  ━═━═━═━\n• تدل علامة (✔) الملف مفعل\n".."• تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
-local Check_File_is_Found = io.open("files_LaricA/"..name,"r")
+local Check_File_is_Found = io.open("LaricA_Files/"..name,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
 CeckFile = "(✔)"
@@ -8719,7 +8739,7 @@ end
 if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevLaricA(msg) then
 local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
-local file_bot = io.open("files_LaricA/"..file,"r")
+local file_bot = io.open("LaricA_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
 t = "*• الملف ↺ {"..file.."}\n• تم تعطيله وحذفه بنجاح \n✓*"
@@ -8728,7 +8748,7 @@ t = "*• بالتاكيد تم تعطيل وحذف ملف ↺ {"..file.."} \n�
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/MALATHSOURCE/files_LaricA/master/files_LaricA/"..file)
 if res == 200 then
-os.execute("rm -fr files_LaricA/"..file)
+os.execute("rm -fr LaricA_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
 dofile('LaricA.lua')  
 else
@@ -8739,7 +8759,7 @@ end
 if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and DevLaricA(msg) then
 local name_t = {string.match(text, "^(تفعيل ملف) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
-local file_bot = io.open("files_LaricA/"..file,"r")
+local file_bot = io.open("LaricA_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
 t = "*• بالتاكيد تم تنزيل وتفعيل ملف ↺ {"..file.."} \n✓*"
@@ -8748,7 +8768,7 @@ t = "*• الملف ↺ {"..file.."}\n• تم تنزيله وتفعيله بن
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/MALATHSOURCE/files_LaricA/master/files_LaricA/"..file)
 if res == 200 then
-local chek = io.open("files_LaricA/"..file,'w+')
+local chek = io.open("LaricA_Files/"..file,'w+')
 chek:write(json_file)
 chek:close()
 send(msg.chat_id_, msg.id_,t) 
@@ -8759,7 +8779,7 @@ end
 return false
 end
 if text == "مسح جميع الملفات" and DevLaricA(msg) then
-os.execute("rm -fr files_LaricA/*")
+os.execute("rm -fr LaricA_Files/*")
 send(msg.chat_id_,msg.id_,"• تم حذف جميع الملفات")
 return false
 end
@@ -11374,7 +11394,7 @@ data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..
 end
 ------------------------------------------------------------------------
 LaricA_Started_Bot(msg,data)
-files_LaricA(msg)
+LaricA_Files(msg)
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
