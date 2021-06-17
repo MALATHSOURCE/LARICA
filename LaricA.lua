@@ -6266,6 +6266,9 @@ end
 local rtp = Get_Rank(msg.sender_user_id_,msg.chat_id_)
 send(msg.chat_id_, msg.id_,"• رتبتك في البوت ↺ "..rtp)
 end
+if text == 'بايو' then   
+send(msg.chat_id_, msg.id_,getbio(msg.sender_user_id_)) 
+end 
 if text == "اسمي"  then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
