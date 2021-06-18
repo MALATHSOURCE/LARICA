@@ -8906,6 +8906,19 @@ end
 Text = [[• ︙  @LC6BOT   ]]
 send(msg.chat_id_, msg.id_,Text)
 end
+if text == 'بوت زخرفه' or text == 'زخرفه' then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[ •  @FJQBoT   ]]
+send(msg.chat_id_, msg.id_,Text)
+end
 if text == 'الاوامر' and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
