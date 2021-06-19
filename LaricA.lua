@@ -7416,7 +7416,30 @@ database:del(bot_id.."LaricA:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_)
 database:set(bot_id.."LaricA:Klesh:Id:Bot"..msg.chat_id_,text:match("(.*)"))
 send(msg.chat_id_, msg.id_,'• تم تعين الايدي')    
 end
+if text == 'تعين الايدي عام' and LaRiCaTeam(msg) then
+database:setex(bot_id.."LaricA:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
+send(msg.chat_id_, msg.id_,[[
+   ☑┇ ارسل الان النص
+   ☑┇ يمكنك اضافه :
+   - `#username` > اسم المستخدم
+   - `#msgs` > عدد رسائل المستخدم
+   - `#photos` > عدد صور المستخدم
+   - `#id` > ايدي المستخدم
+   - `#auto` > تفاعل المستخدم
+   - `#stast` > موقع المستخدم 
+   - `#edit` > عدد السحكات
+   - `#game` > المجوهرات
+   - `#AddMem` > عدد الجهات
+   - `#Description` > تعليق الصوره
+   ]])
+return false  
+end 
 
+if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' and LaRiCaTeam(msg) then
+database:del(bot_id.."LaricA:KleshIDALLBOT")
+send(msg.chat_id_, msg.id_, '📌┇تم ازالة كليشة الايدي ')
+return false  
+end 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) == 0 and not database:get(bot_id..'LaricA:Lock:ID:Bot'..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
