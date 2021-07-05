@@ -5981,6 +5981,41 @@ send(msg.chat_id_, msg.id_,"• تم حفظ الرد بنجاح")
 return false  
 end  
 end
+if text == 'تعين الايدي عام' and DevLaricA(msg) then
+database:setex(bot_id.."LaricA:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
+send(msg.chat_id_, msg.id_,[[
+   ☑┇ ارسل الان النص
+   ☑┇ يمكنك اضافه :
+   - `#username` > اسم المستخدم
+   - `#msgs` > عدد رسائل المستخدم
+   - `#photos` > عدد صور المستخدم
+   - `#id` > ايدي المستخدم
+   - `#auto` > تفاعل المستخدم
+   - `#stast` > موقع المستخدم 
+   - `#edit` > عدد السحكات
+   - `#game` > المجوهرات
+   - `#AddMem` > عدد الجهات
+   - `#Description` > تعليق الصوره
+   ]])
+return false  
+end 
+
+if text == 'حذف الايدي عام' or text == 'مسح الايدي عام' and DevLaricA(msg) then
+database:del(bot_id.."LaricA:KleshIDALLBOT")
+send(msg.chat_id_, msg.id_, '📌┇تم ازالة كليشة الايدي ')
+return false  
+end 
+
+if database:get(bot_id.."LaricA:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) then 
+database:del(bot_id.."LaricA:Set:Id:All"..msg.chat_id_..""..msg.sender_user_id_) 
+if text == 'الغاء' then 
+send(msg.chat_id_, msg.id_,"📫┇تم الغاء تعين الايدي عام") 
+return false  
+end 
+database:set(bot_id.."LaricA:KleshIDALLBOT",text:match("(.*)"))
+send(msg.chat_id_, msg.id_,'📌┇تم تعين الايدي عام')   
+return false 
+end
 
 if text == "اضف رد للكل" and DevLaricA(msg) then 
 send(msg.chat_id_, msg.id_,"• ارسل الكلمه التري تريد اضافتها")
