@@ -8941,6 +8941,28 @@ send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
 end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
+if text == 'تفعيل الحمايه' and msg.reply_to_message_id_ == 0 and Addictive(msg) and GetSourseMember(msg) then   
+database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)   
+list ={"Y:Ban:User:Time","lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+for i,lock in pairs(list) do 
+database:set(bot_id..lock..msg.chat_id_,'del')    
+end
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تفعيل الحمايه بنجاح") 
+return false
+end,nil)   
+end
+if text == 'تعطيل الحمايه' and msg.reply_to_message_id_ == 0 and Addictive(msg) and GetSourseMember(msg) then   
+database:del(bot_id..'lock:tagrvrbot'..msg.chat_id_)   
+list ={"Y:Ban:User:Time","lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
+for i,lock in pairs(list) do 
+database:del(bot_id..lock..msg.chat_id_)    
+end
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم تعطيل الحمايه بنجاح") 
+return false
+end,nil)   
+end
 if text == 'رفع النسخه الاحتياطيه' and DevLaricA(msg) then   
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
@@ -10965,7 +10987,7 @@ return https.request("https://api.telegram.org/bot"..token..'/editMessageText?ch
 end
 elseif Text and Text:match('(.*)/homeaddwd')  then
 if tonumber(Text:match('(.*)/homeaddwd')) == tonumber(data.sender_user_id_) then
-local Textedit = '??️ Ϯ اوامر التحكم في التفعيل والتعطيل '
+local Textedit = '🕷️ Ϯ اوامر التحكم في التفعيل والتعطيل '
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
@@ -12017,7 +12039,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الخيانة" and database:get(bot_id..":"..msg.sender_user_id_..":hen_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"👋🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
+numj = {"??🏻🌚 10","🌙🥺 20 ","☹️ ↗️ 30","🌚😂 35","😔💔 75","👋🏻🥺 34","💔😶 66","💔😕 82","💔😭 23","💭🌝 19","🙄😂 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘?? 8","😎 3","😔 6","☹️ 0",};
 sendhen = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
