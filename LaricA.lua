@@ -3150,16 +3150,16 @@ end,nil)
 send(msg.chat_id_, msg.id_, "*• تم مسح المالكين*")
 end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مالك")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then  
 local username = text:match("^رفع مالك @(.*)$")
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -3171,7 +3171,7 @@ else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
@@ -3181,16 +3181,16 @@ Reply_Status(msg,userid,"reply","• تم ترقيته مالك")
 return false
 end
 if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 database:srem(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","*• تم تنزيله من المالكين*")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل مالك @(.*)$") and DevBot(msg) then  
 local username = text:match("^تنزيل مالك @(.*)$")
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."creator"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المالكين")  
@@ -3198,7 +3198,7 @@ else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل مالك (%d+)$") and DevBot(msg) then  
@@ -3213,15 +3213,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_LaricA(extra, result, success)
-database:sadd(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ اساسي")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^رفع منشئ اساسي @(.*)$") and DevBot(msg) then  
@@ -3230,24 +3230,24 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^رفع منشئ اساسي @(.*)$")
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-database:sadd(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","•︙تم ترقيته منشئ اساسي")  
+database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","• تم ترقيته منشئ اساسي")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^رفع منشئ اساسي (%d+)$") and DevBot(msg) then  
@@ -3256,12 +3256,12 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
-database:sadd(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, userid)
+database:sadd(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته منشئ اساسي")  
 return false
 end
@@ -3271,15 +3271,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_LaricA(extra, result, success)
-database:srem(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المنشئين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي @(.*)$") and DevBot(msg) then  
@@ -3288,21 +3288,21 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^تنزيل منشئ اساسي @(.*)$")
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, result.id_)
 
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المنشئين")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل منشئ اساسي (%d+)$") and DevBot(msg) then  
@@ -3311,12 +3311,12 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
-database:srem(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, userid)
+database:srem(bot_id.."Matrix:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المنشئين")  
 return false
 end
@@ -3327,15 +3327,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_LaricA(extra, result, success)
-database:sadd(bot_id.."LaricA:Constructor"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ في المجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
 if text and text:match("^رفع منشئ @(.*)$") and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -3343,24 +3343,24 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^رفع منشئ @(.*)$")
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-database:sadd(bot_id.."LaricA:Constructor"..msg.chat_id_, result.id_)
+database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم ترقيته منشئ في المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 end
 ------------------------------------------------------------------------
 if text and text:match("^رفع منشئ (%d+)$") and BasicConstructor(msg) then  
@@ -3369,20 +3369,20 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^رفع منشئ (%d+)$")
-database:sadd(bot_id.."LaricA:Constructor"..msg.chat_id_, userid)
+database:sadd(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته منشئ في المجموعه")  
 end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
-function Function_LaricA(extra, result, success)
-database:srem(bot_id.."LaricA:Constructor"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المنشئين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 end
 ------------------------------------------------------------------------
 if text and text:match("^تنزيل منشئ @(.*)$") and BasicConstructor(msg) then  
@@ -3391,20 +3391,20 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^تنزيل منشئ @(.*)$")
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."LaricA:Constructor"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المنشئين")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 end
 ------------------------------------------------------------------------
 if text and text:match("^تنزيل منشئ (%d+)$") and BasicConstructor(msg) then  
@@ -3413,12 +3413,12 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^تنزيل منشئ (%d+)$")
-database:srem(bot_id.."LaricA:Constructor"..msg.chat_id_, userid)
+database:srem(bot_id.."Matrix:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المنشئين")  
 end
 
@@ -3428,15 +3428,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_LaricA(extra, result, success)
-database:sadd(bot_id.."LaricA:Manager"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مدير المجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end  
 if text and text:match("^رفع مدير @(.*)$") and Constructor(msg) then  
@@ -3445,24 +3445,24 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^رفع مدير @(.*)$") 
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-database:sadd(bot_id.."LaricA:Manager"..msg.chat_id_, result.id_)
+database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم ترقيته مدير المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end 
 
@@ -3472,12 +3472,12 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^رفع مدير (%d+)$") 
-database:sadd(bot_id.."LaricA:Manager"..msg.chat_id_, userid)
+database:sadd(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته مدير المجموعه")  
 return false
 end  
@@ -3487,15 +3487,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_LaricA(extra, result, success)
-database:srem(bot_id.."LaricA:Manager"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المدراء")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end  
 if text and text:match("^تنزيل مدير @(.*)$") and Constructor(msg) then  
@@ -3504,20 +3504,20 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^تنزيل مدير @(.*)$")
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."LaricA:Manager"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المدراء")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end  
 if text and text:match("^تنزيل مدير (%d+)$") and Constructor(msg) then  
@@ -3526,12 +3526,12 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^تنزيل مدير (%d+)$") 
-database:srem(bot_id.."LaricA:Manager"..msg.chat_id_, userid)
+database:srem(bot_id.."Matrix:Manager"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المدراء")  
 return false
 end
@@ -3542,19 +3542,19 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
 return false
 end
-function Function_LaricA(extra, result, success)
-database:sadd(bot_id.."LaricA:Mod:User"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته ادمن للمجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then  
@@ -3563,28 +3563,28 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^رفع ادمن @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
 return false
 end
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-database:sadd(bot_id.."LaricA:Mod:User"..msg.chat_id_, result.id_)
+database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم ترقيته ادمن للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^رفع ادمن (%d+)$") and Owner(msg) then  
@@ -3593,16 +3593,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^رفع ادمن (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
 return false
 end
-database:sadd(bot_id.."LaricA:Mod:User"..msg.chat_id_, userid)
+database:sadd(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته ادمن للمجموعه")  
 return false
 end
@@ -3612,15 +3612,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_LaricA(extra, result, success)
-database:srem(bot_id.."LaricA:Mod:User"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل ادمن @(.*)$") and Owner(msg) then  
@@ -3629,20 +3629,20 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^تنزيل ادمن @(.*)$") 
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."LaricA:Mod:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then  
@@ -3651,12 +3651,12 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
-database:srem(bot_id.."LaricA:Mod:User"..msg.chat_id_, userid)
+database:srem(bot_id.."Matrix:Mod:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه المجموعه")  
 return false
 end
@@ -3667,19 +3667,19 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
 return false
 end
-function Function_LaricA(extra, result, success)
-database:sadd(bot_id.."LaricA:Special:User"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مميز للمجموعه")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then  
@@ -3688,28 +3688,28 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^رفع مميز @(.*)$") 
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
 return false
 end
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-database:sadd(bot_id.."LaricA:Special:User"..msg.chat_id_, result.id_)
+database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم ترقيته مميز للمجموعه")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 
@@ -3719,17 +3719,17 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^رفع مميز (%d+)$")
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'✟꒐| تم تعطيل الرفع')
 return false
 end
-database:sadd(bot_id.."LaricA:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته مميز للمجموعه")  
+database:sadd(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","• تم ترقيته مميز في المجموعة")  
 return false
 end
 
@@ -3739,15 +3739,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
-function Function_LaricA(extra, result, success)
-database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_, result.sender_user_id_)
+function Function_Matrix(extra, result, success)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من المميزين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل مميز @(.*)$") and Addictive(msg) then  
@@ -3756,20 +3756,20 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local username = text:match("^تنزيل مميز @(.*)$") 
-function Function_LaricA(extra, result, success)
+function Function_Matrix(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المميزين")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Matrix, nil)
 return false
 end
 if text and text:match("^تنزيل مميز (%d+)$") and Addictive(msg) then  
@@ -3778,162 +3778,15 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.\n• اشتࢪڪ هنا عمࢪي ← ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 local userid = text:match("^تنزيل مميز (%d+)$") 
-database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_, userid)
+database:srem(bot_id.."Matrix:Special:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم تنزيله من المميزين")  
 return false
 end  
-if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local RTPA = text:match("رفع (.*)")
-if database:sismember(bot_id.."LaricA:Coomds"..msg.chat_id_,RTPA) then
-function by_reply(extra, result, success)   
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local LaricArt = database:get(bot_id.."LaricA:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if LaricArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-database:set(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
-database:sadd(bot_id.."LaricA:Special:User"..msg.chat_id_,result.sender_user_id_)  
-elseif LaricArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-database:set(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
-database:sadd(bot_id.."LaricA:Mod:User"..msg.chat_id_,result.sender_user_id_)  
-elseif LaricArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-database:set(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)  
-database:sadd(bot_id.."LaricA:Manager"..msg.chat_id_,result.sender_user_id_)  
-elseif LaricArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم رفعه "..RTPA.." هنا\n")
-end
-end,nil)   
-end   
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_) > 0 and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local RTPA = text:match("تنزيل (.*)")
-if database:sismember(bot_id.."LaricA:Coomds"..msg.chat_id_,RTPA) then
-function by_reply(extra, result, success)   
-tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
-local LaricArt = database:get(bot_id.."LaricA:Comd:New:rt:bot:"..RTPA..msg.chat_id_)
-if LaricArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_,result.sender_user_id_)  
-database:del(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif LaricArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-database:srem(bot_id.."LaricA:Mod:User"..msg.chat_id_,result.sender_user_id_) 
-database:del(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif LaricArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-database:srem(bot_id.."LaricA:Manager"..msg.chat_id_,result.sender_user_id_)  
-database:del(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif LaricArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..data.first_name_.."](t.me/"..(data.username_ or "MALATHSOURCE")..")".."\n• تم تنزيله من "..RTPA.." هنا\n")  
-end
-end,nil)   
-end   
-tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
-end
-end
-if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
-if database:sismember(bot_id.."LaricA:Coomds"..msg.chat_id_,text1[2]) then
-function py_username(extra, result, success)   
-if result.id_ then
-local LaricArt = database:get(bot_id.."LaricA:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if LaricArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."LaricA:Special:User"..msg.chat_id_,result.id_)  
-database:set(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif LaricArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."LaricA:Mod:User"..msg.chat_id_,result.id_)  
-database:set(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif LaricArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم رفعه "..text1[2].." هنا")   
-database:sadd(bot_id.."LaricA:Manager"..msg.chat_id_,result.id_)  
-database:set(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif LaricArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم رفعه "..text1[2].." هنا")   
-end
-else
-info = "• المعرف غلط"
-send(msg.chat_id_, msg.id_,info)
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil) 
-end 
-end
-if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
-if database:sismember(bot_id.."LaricA:Coomds"..msg.chat_id_,text1[2]) then
-function py_username(extra, result, success)   
-if result.id_ then
-local LaricArt = database:get(bot_id.."LaricA:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if LaricArt == "مميز" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_,result.id_)  
-database:del(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif LaricArt == "ادمن" and Owner(msg) then 
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."LaricA:Mod:User"..msg.chat_id_,result.id_)  
-database:del(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif LaricArt == "مدير" and Constructor(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-database:srem(bot_id.."LaricA:Manager"..msg.chat_id_,result.id_)  
-database:del(bot_id.."LaricA:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif LaricArt == "عضو" and Addictive(msg) then
-send(msg.chat_id_, msg.id_,"\n• العضو ↺ ["..result.title_.."](t.me/"..(text1[3] or "MALATHSOURCE")..")".."\n• تم تنريله من "..text1[2].." هنا")   
-end
-else
-info = "• المعرف غلط"
-send(msg.chat_id_, msg.id_,info)
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil) 
-end  
-end
-
 if text == ("حظر") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6377,13 +6230,6 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, Function_LaricA, nil)
 end
-if text == ("تصفيه") and msg.reply_to_message_id_ == 0 and BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,"\n🔖¦ تم تنزيل جميع الرتب  \n")
-database:del(bot_id.."LaricA:Constructor"..msg.chat_id_)
-database:del(bot_id.."LaricA:Manager"..msg.chat_id_)
-database:del(bot_id.."LaricA:Mod:User"..msg.chat_id_)
-database:del(bot_id.."LaricA:Special:User"..msg.chat_id_)
-end
 if text == "تاك للكل" and Addictive(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -7809,7 +7655,7 @@ return false
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Tshak:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","•","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","•","🎗","🏵","•","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","??","🌡","??","•","📍","📓","📗","•","📅","📪","•","•","📭","⏰","📺","🎚","☎️","•"}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","•","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","??","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","•","🎗","🏵","•","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","??","🌡","??","•","📍","📓","📗","•","📅","📪","•","•","📭","⏰","📺","🎚","☎️","•"}
 SM = Random[math.random(#Random)]
 database:set(bot_id.."Tshak:Random:Sm"..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,"• اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
