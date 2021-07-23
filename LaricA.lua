@@ -3938,7 +3938,8 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text == "احرف" or text == "حروف" then
-local texting = {"ماد بحرف ↚ ر  ", 
+local texting = {
+"ماد بحرف ↚ ر  ", 
 " مدينة بحرف ↚ ع  ",
 " حيوان ونبات بحرف ↚ خ  ", 
 " اسم بحرف ↚ ح  ", 
