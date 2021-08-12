@@ -6042,7 +6042,7 @@ send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'a
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه التي تريد اضافتها")
+send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد وضعة")
 database:set(bot_id.."LaricA:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
@@ -6061,13 +6061,13 @@ send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'a
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"• ارسل الكلمه التي تريد حذفها")
+send(msg.chat_id_, msg.id_,"⌔︙الان ارسل الرد الذي تريد حذفة")
 database:set(bot_id.."LaricA:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."LaricA:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-send(msg.chat_id_, msg.id_, '• الان ارسل الرد الذي تريد اضافته \n• قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n• يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
+send(msg.chat_id_, msg.id_, '⌔︙الان ارسل الرد الذي تريد اضافته \n⌔︙قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n⌔︙يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
 database:set(bot_id.."LaricA:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
 database:set(bot_id.."LaricA:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
 database:del(bot_id.."LaricA:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
@@ -6083,7 +6083,7 @@ return false end
 end
 if text and text:match("^(.*)$") then
 if database:get(bot_id.."LaricA:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_.."") == "true2" then
-send(msg.chat_id_, msg.id_,"• تم ازالة الرد من قائمه الردود")
+send(msg.chat_id_, msg.id_,"⌔︙تم ازالة الرد من قائمه الردود")
 database:del(bot_id.."LaricA:Add:Rd:Manager:Gif"..text..msg.chat_id_)   
 database:del(bot_id.."LaricA:Add:Rd:Manager:Vico"..text..msg.chat_id_)   
 database:del(bot_id.."LaricA:Add:Rd:Manager:Stekrs"..text..msg.chat_id_)     
@@ -6152,35 +6152,6 @@ sendPhoto(msg.chat_id_,msg.id_,photo,photo_caption)
 database:sadd(bot_id.."LaricA:Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
-end
-if text == "تاك للمشرفين" or text == "صيح المشرفين" and CoSu(msg) then
-if database:get(bot_id.."admin:Time"..msg.chat_id_) then 
-return
- send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
-end
-database:setex(bot_id..'admin:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
-tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100 },function(extra,result,success)
-m = 0
-tgad = 0
-local ans = result.members_  
-for k, v in pairs(ans) do
-tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
-if m == 1 or m == tgad or k == 0 then
-tgad = m + 5
-t = "#Admin"
-end
-m = m + 1
-Adminame = data.first_name_
-Adminame = Adminame:gsub("]","")
-Adminame = Adminame:gsub("[[]","")
-t = t..", ["..Adminame.."](tg://user?id="..v.user_id_..")"
-if m == 1 or m == tgad or k == 0 then
-local Text = t:gsub('#Admin,','#Admin\n')
-sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
-end
-end,nil)
-end
-end,nil)
 end
 ------------------------------------------------------------------------
 if text == ("مسح ردود المطور") and DevLaricA(msg) then 
