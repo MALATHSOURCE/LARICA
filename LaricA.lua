@@ -106,7 +106,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or VIP_DeV(msg) then     
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or VIP_DeV(msg) or creatorA(msg) then     
 return true 
 else 
 return false 
@@ -114,7 +114,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id.."LaricA:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) then        
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorA(msg) then        
 return true    
 else    
 return false    
@@ -122,7 +122,7 @@ end
 end
 function Owner(msg)
 local hash = database:sismember(bot_id.."LaricA:Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) creatorA(msg) then        
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) or creatorA(msg) then        
 return true    
 else    
 return false    
