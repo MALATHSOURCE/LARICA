@@ -209,31 +209,31 @@ return var
 end 
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(1573309498) then  
-var = 'مطور السورس'
+var = '*مطور السورس*'
 elseif tonumber(user_id) == tonumber(11110) then  
-var = "مبرمج السورس"  
+var = "*مبرمج السورس*"  
 elseif DevLaricAe(user_id) == true then
-var = "المطور الاساسي"  
+var = "*المطور الاساسي*"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
-var = "البوت"
-elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "المطور الاساسي²"  
+var = "*البوت*"
+elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "*المطور الاساسي²*"  
 elseif database:sismember(bot_id.."LaricA:Sudo:User", user_id) then
-var = database:get(bot_id.."LaricA:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "المالك"
+var = database:get(bot_id.."LaricA:Sudo:Rd"..chat_id) or "*المطور*"  
+elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "*المالك*"
 elseif database:sismember(bot_id.."LaricA:Basic:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."LaricA:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
+var = database:get(bot_id.."LaricA:BasicConstructor:Rd"..chat_id) or "*المنشئ اساسي*"
 elseif database:sismember(bot_id.."LaricA:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."LaricA:Constructor:Rd"..chat_id) or "المنشئ"  
+var = database:get(bot_id.."LaricA:Constructor:Rd"..chat_id) or "*المنشئ*"  
 elseif database:sismember(bot_id.."LaricA:Manager"..chat_id, user_id) then
-var = database:get(bot_id.."LaricA:Manager:Rd"..chat_id) or "المدير"  
+var = database:get(bot_id.."LaricA:Manager:Rd"..chat_id) or "*المدير*"  
 elseif database:sismember(bot_id.."LaricA:Mod:User"..chat_id, user_id) then
-var = database:get(bot_id.."LaricA:Mod:Rd"..chat_id) or "الادمن"  
+var = database:get(bot_id.."LaricA:Mod:Rd"..chat_id) or "*الادمن*"  
 elseif database:sismember(bot_id.."LaricA:MN:TF"..chat_id, user_id) then
 var =  "منظف"  
 elseif database:sismember(bot_id.."LaricA:Special:User"..chat_id, user_id) then  
-var = database:get(bot_id.."LaricA:Special:Rd"..chat_id) or "المميز"  
+var = database:get(bot_id.."LaricA:Special:Rd"..chat_id) or "*المميز*"  
 else  
-var = database:get(bot_id.."LaricA:Memp:Rd"..chat_id) or "العضو"
+var = database:get(bot_id.."LaricA:Memp:Rd"..chat_id) or "*العضو*"
 end  
 return var
 end 
@@ -3131,24 +3131,24 @@ Reply_Status(msg,userid,"reply","• تم تنزيله من المطورين")
 return false 
 end
 
-if text == "المالكين" and DevBot(msg) then
+if text == "المالكين" and creatorA(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "\n📋꒐ قائمة مالكين المجموعه \n  ━═━═━═━\n"
+t = "\n⌔︙قائمة المالكين \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."User:Name" .. v)
+local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
-t = t..""..k.."↬• [@"..username.."]\n"
+t = t..""..k.."- ([@"..username.."])\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "*• لا يوجد مالكين*"
+t = "⌔︙لا يوجد مالكين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
-return false
+return SendMsg_Msgeeslist("listcreatorr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
-if text == "مسح قائمه المالكين" and DevBot(msg) then
+if text == "مسح قائمه المالكين" and creatorA(msg) then
 database:del(bot_id.."creator"..msg.chat_id_)
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
@@ -3158,64 +3158,64 @@ database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
 end,nil)
-send(msg.chat_id_, msg.id_, "*• تم مسح المالكين*")
+send(msg.chat_id_, msg.id_, "*⌔︙تم مسح المالكين*")
 end
-if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
+if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 function Function_LaricA(extra, result, success)
 database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مالك")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم ترقيته مالك*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^رفع مالك @(.*)$") and DevBot(msg) then  
+if text and text:match("^رفع مالك @(.*)$") and creatorA(msg) then  
 local username = text:match("^رفع مالك @(.*)$")
 function Function_LaricA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"⌔︙عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."creator"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته مالك")  
+Reply_Status(msg,result.id_,"reply","*⌔︙تم ترقيته مالك*")  
 else
-send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
+send(msg.chat_id_, msg.id_,"*⌔︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
+if text and text:match("^رفع مالك (%d+)$") and creatorA(msg) then  
 local userid = text:match("^رفع مالك (%d+)$") 
 database:sadd(bot_id.."creator"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته مالك")  
+Reply_Status(msg,userid,"reply","*⌔︙تم ترقيته مالك*")  
 return false
 end
-if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
+if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 function Function_LaricA(extra, result, success)
 database:srem(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","*• تم تنزيله من المالكين*")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔︙تم تنزيله من المالكين*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^تنزيل مالك @(.*)$") and DevBot(msg) then  
+if text and text:match("^تنزيل مالك @(.*)$") and creatorA(msg) then  
 local username = text:match("^تنزيل مالك @(.*)$")
 function Function_LaricA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."creator"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من المالكين")  
+Reply_Status(msg,result.id_,"reply","⌔︙تم تنزيله من المالكين")  
 else
-send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
+send(msg.chat_id_, msg.id_,"*⌔︙لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^تنزيل مالك (%d+)$") and DevBot(msg) then  
+if text and text:match("^تنزيل مالك (%d+)$") and creatorA(msg) then  
 local userid = text:match("^تنزيل مالك (%d+)$") 
 database:srem(bot_id.."creator"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","*• تم تنزيله من المالكين*")  
+Reply_Status(msg,userid,"reply","*⌔︙تم تنزيله من المالكين*")  
 return false
 end
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
