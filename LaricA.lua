@@ -96,7 +96,7 @@ else
 return false  
 end  
 end
-function creatorAA(msg)
+function creatorA(msg)
 local hash = database:sismember(bot_id.."creatorA"..msg.chat_id_, msg.sender_user_id_) 
 if hash or DevBot(msg) or DevLaricA(msg) or VIP_DeV(msg) then    
 return true 
@@ -130,7 +130,7 @@ end
 end
 function Addictive(msg)
 local hash = database:sismember(bot_id.."LaricA:Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or VIP_DeV(msg) or creatorAA(msg) then             
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or VIP_DeV(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
@@ -138,7 +138,7 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."LaricA:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorAA(msg) then             
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorA(msg) then             
 return true    
 else    
 return false    
@@ -146,7 +146,7 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."LaricA:Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorAA(msg) then             
+if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorA(msg) then             
 return true 
 else 
 return false 
@@ -154,7 +154,7 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."LaricA:Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorAA(msg) then        
+if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorA(msg) then        
 return true 
 else 
 return false 
@@ -3218,7 +3218,7 @@ database:srem(bot_id.."creatorA"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*• تم تنزيله من المالكين*")  
 return false
 end
-if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorAA(msg) then  
+if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3235,7 +3235,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي @(.*)$") and creatorAA(msg) then  
+if text and text:match("^رفع منشئ اساسي @(.*)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3276,7 +3276,7 @@ database:sadd(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته منشئ اساسي")  
 return false
 end
-if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorAA(msg) then  
+if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3293,7 +3293,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي @(.*)$") and creatorAA(msg) then  
+if text and text:match("^تنزيل منشئ اساسي @(.*)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3316,7 +3316,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي (%d+)$") and creatorAA(msg) then  
+if text and text:match("^تنزيل منشئ اساسي (%d+)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9679,7 +9679,7 @@ return false
 end
 local Text =[[
 𝙬𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 𝙨𝙤𝙪𝙧𝙘𝙚 [𝙨𝙤𝙪𝙧𝙘𝙚 𝙡𝙖𝙧𝙞𝙘𝙖 🦇](t.me/LaRiCaTeam)
-𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤??𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️  
+𝙝𝙚𝙧?? 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤??𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️  
 
 ]]
 keyboard = {} 
@@ -11902,7 +11902,7 @@ tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,off
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
 if deata.status_.ID == "ChatMemberStatuscreatorA" then 
-rtpa = 'منشئ'
+rtpa = 'مالك'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
 elseif deata.status_.ID == "ChatMemberStatusMember" then 
