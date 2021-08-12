@@ -97,7 +97,7 @@ return false
 end  
 end
 function creatorA(msg)
-local hash = database:sismember(bot_id.."creatorA"..msg.chat_id_, msg.sender_user_id_) 
+local hash = database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) 
 if hash or DevBot(msg) or DevLaricA(msg) or VIP_DeV(msg) then    
 return true 
 else 
@@ -122,7 +122,7 @@ end
 end
 function Owner(msg)
 local hash = database:sismember(bot_id.."LaricA:Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) then        
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) creatorA(msg) then        
 return true    
 else    
 return false    
@@ -9679,7 +9679,7 @@ return false
 end
 local Text =[[
 𝙬𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 𝙨𝙤𝙪𝙧𝙘𝙚 [𝙨𝙤𝙪𝙧𝙘𝙚 𝙡𝙖𝙧𝙞𝙘𝙖 🦇](t.me/LaRiCaTeam)
-𝙝𝙚𝙧?? 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤??𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️  
+𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤??𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️  
 
 ]]
 keyboard = {} 
