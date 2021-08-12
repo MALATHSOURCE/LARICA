@@ -96,8 +96,8 @@ else
 return false  
 end  
 end
-function creatorA(msg)
-local hash = database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) 
+function creatorAA(msg)
+local hash = database:sismember(bot_id.."creatorA"..msg.chat_id_, msg.sender_user_id_) 
 if hash or DevBot(msg) or DevLaricA(msg) or VIP_DeV(msg) then    
 return true 
 else 
@@ -130,7 +130,7 @@ end
 end
 function Addictive(msg)
 local hash = database:sismember(bot_id.."LaricA:Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or VIP_DeV(msg) or creatorA(msg) then             
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or VIP_DeV(msg) or creatorAA(msg) then             
 return true    
 else    
 return false    
@@ -138,7 +138,7 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."LaricA:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorA(msg) then             
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorAA(msg) then             
 return true    
 else    
 return false    
@@ -146,7 +146,7 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."LaricA:Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorA(msg) then             
+if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorAA(msg) then             
 return true 
 else 
 return false 
@@ -154,7 +154,7 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."LaricA:Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorA(msg) then        
+if hash or Bot(msg) or  DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or VIP_DeV(msg) or creatorAA(msg) then        
 return true 
 else 
 return false 
@@ -188,7 +188,7 @@ elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then
 var = true  
 elseif database:sismember(bot_id.."LaricA:Sudo:User", user_id) then
 var = true  
-elseif database:sismember(bot_id.."creator"..chat_id, user_id) then
+elseif database:sismember(bot_id.."creatorA"..chat_id, user_id) then
 var = true  
 elseif database:sismember(bot_id.."LaricA:Basic:Constructor"..chat_id, user_id) then
 var = true                 
@@ -219,7 +219,7 @@ var = "البوت"
 elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "المطور الاساسي²"  
 elseif database:sismember(bot_id.."LaricA:Sudo:User", user_id) then
 var = database:get(bot_id.."LaricA:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "المالك"
+elseif database:sismember(bot_id.."creatorA"..chat_id,user_id) then var = "المالك"
 elseif database:sismember(bot_id.."LaricA:Basic:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."LaricA:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
 elseif database:sismember(bot_id.."LaricA:Constructor"..chat_id, user_id) then
@@ -3132,7 +3132,7 @@ return false
 end
 
 if text == "المالكين" and DevBot(msg) then
-local list = database:smembers(bot_id.."creator"..msg.chat_id_)
+local list = database:smembers(bot_id.."creatorA"..msg.chat_id_)
 t = "\n📋꒐ قائمة مالكين المجموعه \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."User:Name" .. v)
@@ -3149,12 +3149,12 @@ send(msg.chat_id_, msg.id_, t)
 return false
 end
 if text == "مسح قائمه المالكين" and DevBot(msg) then
-database:del(bot_id.."creator"..msg.chat_id_)
+database:del(bot_id.."creatorA"..msg.chat_id_)
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+if data.members_[i].status_.ID == "ChatMemberStatuscreatorA" then
+database:sadd(bot_id.."creatorA"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
 end,nil)
@@ -3162,7 +3162,7 @@ send(msg.chat_id_, msg.id_, "*• تم مسح المالكين*")
 end
 if text == ("رفع مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 function Function_LaricA(extra, result, success)
-database:sadd(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
+database:sadd(bot_id.."creatorA"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مالك")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
@@ -3176,7 +3176,7 @@ if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
-database:sadd(bot_id.."creator"..msg.chat_id_, result.id_)
+database:sadd(bot_id.."creatorA"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم ترقيته مالك")  
 else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
@@ -3187,13 +3187,13 @@ return false
 end
 if text and text:match("^رفع مالك (%d+)$") and DevBot(msg) then  
 local userid = text:match("^رفع مالك (%d+)$") 
-database:sadd(bot_id.."creator"..msg.chat_id_, userid)
+database:sadd(bot_id.."creatorA"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته مالك")  
 return false
 end
 if text == ("تنزيل مالك") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then  
 function Function_LaricA(extra, result, success)
-database:srem(bot_id.."creator"..msg.chat_id_, result.sender_user_id_)
+database:srem(bot_id.."creatorA"..msg.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","*• تم تنزيله من المالكين*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
@@ -3203,7 +3203,7 @@ if text and text:match("^تنزيل مالك @(.*)$") and DevBot(msg) then
 local username = text:match("^تنزيل مالك @(.*)$")
 function Function_LaricA(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."creator"..msg.chat_id_, result.id_)
+database:srem(bot_id.."creatorA"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","• تم تنزيله من المالكين")  
 else
 send(msg.chat_id_, msg.id_,"*• لا يوجد حساب بهاذا المعرف*")
@@ -3214,11 +3214,11 @@ return false
 end
 if text and text:match("^تنزيل مالك (%d+)$") and DevBot(msg) then  
 local userid = text:match("^تنزيل مالك (%d+)$") 
-database:srem(bot_id.."creator"..msg.chat_id_, userid)
+database:srem(bot_id.."creatorA"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","*• تم تنزيله من المالكين*")  
 return false
 end
-if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
+if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorAA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3235,7 +3235,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي @(.*)$") and creatorA(msg) then  
+if text and text:match("^رفع منشئ اساسي @(.*)$") and creatorAA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3261,7 +3261,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^رفع منشئ اساسي (%d+)$") and creator(msg) then  
+if text and text:match("^رفع منشئ اساسي (%d+)$") and creatorA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3276,7 +3276,7 @@ database:sadd(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","• تم ترقيته منشئ اساسي")  
 return false
 end
-if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorA(msg) then  
+if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and creatorAA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3293,7 +3293,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي @(.*)$") and creatorA(msg) then  
+if text and text:match("^تنزيل منشئ اساسي @(.*)$") and creatorAA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3316,7 +3316,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
 return false
 end
-if text and text:match("^تنزيل منشئ اساسي (%d+)$") and creatorA(msg) then  
+if text and text:match("^تنزيل منشئ اساسي (%d+)$") and creatorAA(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6446,7 +6446,7 @@ database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_, result.sender_user_id
 database:srem(bot_id.."LaricA:Manager"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."LaricA:Constructor"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_,result.sender_user_id_)
-elseif database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) then
+elseif database:sismember(bot_id.."creatorA"..msg.chat_id_, msg.sender_user_id_) then
 database:srem(bot_id.."LaricA:Mod:User"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."LaricA:Manager"..msg.chat_id_, result.sender_user_id_)
@@ -6510,7 +6510,7 @@ database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_, result.id_)
 database:srem(bot_id.."LaricA:Manager"..msg.chat_id_, result.id_)
 database:srem(bot_id.."LaricA:Constructor"..msg.chat_id_, result.id_)
 database:srem(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_,result.id_)
-elseif database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) then
+elseif database:sismember(bot_id.."creatorA"..msg.chat_id_, msg.sender_user_id_) then
 database:srem(bot_id.."LaricA:Mod:User"..msg.chat_id_, result.id_)
 database:srem(bot_id.."LaricA:Special:User"..msg.chat_id_, result.id_)
 database:srem(bot_id.."LaricA:Manager"..msg.chat_id_, result.id_)
@@ -7190,7 +7190,7 @@ if text ==("المنشئ") then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+if data.members_[i].status_.ID == "ChatMemberStatuscreatorA" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
@@ -7208,7 +7208,7 @@ if text ==("رفع المنشئ") and DevBot(msg) then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+if data.members_[i].status_.ID == "ChatMemberStatuscreatorA" then
 owner_id = admins[i].user_id_
 end
 end
@@ -8025,7 +8025,7 @@ database:sadd(bot_id.."LaricA:Spam:Group"..msg.sender_user_id_,text)
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreatorA" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -10071,8 +10071,8 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+if data.members_[i].status_.ID == "ChatMemberStatuscreatorA" then
+database:sadd(bot_id.."creatorA"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
 end,nil)
@@ -10170,9 +10170,9 @@ tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100",
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
+if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatuscreatorA" then
 if da and da.user_id_ == msg.sender_user_id_ then
-if da.status_.ID == "ChatMemberStatusCreator" then
+if da.status_.ID == "ChatMemberStatuscreatorA" then
 var = 'المنشئ'
 elseif da.status_.ID == "ChatMemberStatusEditor" then
 var = 'الادمن'
@@ -10197,8 +10197,8 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
+if data.members_[i].status_.ID == "ChatMemberStatuscreatorA" then
+database:sadd(bot_id.."creatorA"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
 end,nil)
@@ -11742,7 +11742,7 @@ if tonumber(Text:match('(.*)/ideengphoto')) == tonumber(data.sender_user_id_) th
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreatorA" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -11794,7 +11794,7 @@ if tonumber(Text:match('(.*)/idearpphoto')) == tonumber(data.sender_user_id_) th
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreatorA" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -11848,7 +11848,7 @@ if tonumber(Text:match('(.*)/ideeng')) == tonumber(data.sender_user_id_) then
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreatorA" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -11901,7 +11901,7 @@ if tonumber(Text:match('(.*)/idearp')) == tonumber(data.sender_user_id_) then
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreatorA" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
