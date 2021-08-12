@@ -3153,7 +3153,7 @@ database:del(bot_id.."creator"..msg.chat_id_)
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+if data.members_[i].status_.ID == "ChatMemberStatuscreator" then
 database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
@@ -7190,7 +7190,7 @@ if text ==("المنشئ") then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+if data.members_[i].status_.ID == "ChatMemberStatuscreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
@@ -7208,7 +7208,7 @@ if text ==("رفع المنشئ") and DevBot(msg) then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+if data.members_[i].status_.ID == "ChatMemberStatuscreator" then
 owner_id = admins[i].user_id_
 end
 end
@@ -8025,7 +8025,7 @@ database:sadd(bot_id.."LaricA:Spam:Group"..msg.sender_user_id_,text)
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreator" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -10080,7 +10080,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+if data.members_[i].status_.ID == "ChatMemberStatuscreator" then
 database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
@@ -10179,9 +10179,9 @@ tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100",
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
+if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatuscreator" then
 if da and da.user_id_ == msg.sender_user_id_ then
-if da.status_.ID == "ChatMemberStatusCreator" then
+if da.status_.ID == "ChatMemberStatuscreator" then
 var = 'المنشئ'
 elseif da.status_.ID == "ChatMemberStatusEditor" then
 var = 'الادمن'
@@ -10206,7 +10206,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local admins = data.members_
 for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+if data.members_[i].status_.ID == "ChatMemberStatuscreator" then
 database:sadd(bot_id.."creator"..msg.chat_id_,admins[i].user_id_)
 end 
 end  
@@ -11751,7 +11751,7 @@ if tonumber(Text:match('(.*)/ideengphoto')) == tonumber(data.sender_user_id_) th
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreator" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -11803,7 +11803,7 @@ if tonumber(Text:match('(.*)/idearpphoto')) == tonumber(data.sender_user_id_) th
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreator" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -11857,7 +11857,7 @@ if tonumber(Text:match('(.*)/ideeng')) == tonumber(data.sender_user_id_) then
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreator" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
@@ -11910,7 +11910,7 @@ if tonumber(Text:match('(.*)/idearp')) == tonumber(data.sender_user_id_) then
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = data.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
 tdcli_function ({ID = "GetUser",user_id_ = data.sender_user_id_},function(arg,date) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = data.chat_id_,user_id_ = data.sender_user_id_},function(arg,deata) 
-if deata.status_.ID == "ChatMemberStatusCreator" then 
+if deata.status_.ID == "ChatMemberStatuscreator" then 
 rtpa = 'منشئ'
 elseif deata.status_.ID == "ChatMemberStatusEditor" then 
 rtpa = 'ادمن' 
