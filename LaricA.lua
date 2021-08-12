@@ -98,7 +98,7 @@ end
 end
 function creatorA(msg)
 local hash = database:sismember(bot_id.."creator"..msg.chat_id_, msg.sender_user_id_) 
-if hash or DevBot(msg) or DevLaricA(msg) or VIP_DeV(msg) then    
+if hash or DevBot(msg) or DevLaricA(msg) or VIP_DeV(msg) or creatorA(msg) then       
 return true 
 else 
 return false 
@@ -106,7 +106,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or VIP_DeV(msg) then     
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or VIP_DeV(msg) or creatorA(msg) then        
 return true 
 else 
 return false 
@@ -114,7 +114,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id.."LaricA:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) then        
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or VIP_DeV(msg) or creatorA(msg) then           
 return true    
 else    
 return false    
@@ -122,7 +122,7 @@ end
 end
 function Owner(msg)
 local hash = database:sismember(bot_id.."LaricA:Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) then        
+if hash or Bot(msg) or DevLaricA(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or VIP_DeV(msg) or creatorA(msg) then           
 return true    
 else    
 return false    
@@ -219,8 +219,8 @@ var = "البوت"
 elseif database:sismember(bot_id.."DEV:Sudo:T", user_id) then  var = "المطور الاساسي²"  
 elseif database:sismember(bot_id.."LaricA:Sudo:User", user_id) then
 var = database:get(bot_id.."LaricA:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."creator"..chat_id,user_id) then var = "المالك"
-elseif database:sismember(bot_id.."LaricA:Basic:Constructor"..chat_id, user_id) then
+var = database:get(bot_id.."creator:Rd"..chat_id,user_id) then var = "المالك"
+elseif database:sismember(bot_id.."LaricA:creator"..chat_id, user_id) then
 var = database:get(bot_id.."LaricA:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
 elseif database:sismember(bot_id.."LaricA:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."LaricA:Constructor:Rd"..chat_id) or "المنشئ"  
@@ -9612,9 +9612,17 @@ dofile("LaricA.lua")
 send(msg.chat_id_, msg.id_, "• تم التحديث")
 end
 
-if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'source' then
-local msg_id = msg.id_/2097152/0.5
-local Text = [[
+if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+Text = [[
 *𝗝ْ𝗨ِst #َ𝗚𝗿ِ𝗼𝘂ِ𝗽َُ!ْ𝗦 𝗧ِ??ِ𝗺ّ𝗯َ𝗹َُ!r⤹* [◜𝗟𝗮ََِ𝗥ِ!َْ𝗖𝗮 ُ𝗧َ𝗘ِ𝗮َِ𝗺 🦂](t.me/LaRiCaTeam)
 ]]
 keyboard = {} 
@@ -9626,10 +9634,10 @@ keyboard.inline_keyboard = {
 {text = '𝘿𝒆𝙑𝒆𝙡𝒐𝙋𝒆𝙍',url="https://t.me/BBBBRR"},
 },
 } 
+local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/LaRiCaTeam&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-
 
 if text == 'رابط الحذف' or text == 'بوت الحذف' then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -9680,7 +9688,7 @@ return false
 end
 local Text =[[
 𝙬𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 𝙨𝙤𝙪𝙧𝙘𝙚 [𝙨𝙤𝙪𝙧𝙘𝙚 𝙡𝙖𝙧𝙞𝙘𝙖 🦇](t.me/LaRiCaTeam)
-𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 ??𝙤𝙣𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️  
+𝙝𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙘𝙤𝙣𝙩𝙧𝙤𝙡 𝙥𝙖𝙣𝙚𝙡 ⤵️  
 
 ]]
 keyboard = {} 
