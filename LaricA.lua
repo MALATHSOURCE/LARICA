@@ -11062,6 +11062,85 @@ local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
 local Text = data.payload_.data_
 
+if Text and Text:match('(.*)/delDevv') and VIP_DeV(data) then
+if tonumber(Text:match('(.*)/delDevv')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:TSudo:User")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح قائمة C من البوت  ")
+end
+end
+if Text and Text:match('(.*)/delsudos') and VIP_DeV(data) then
+if tonumber(Text:match('(.*)/delsudos')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Sudo:User")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح قائمة C من البوت  ")
+end
+end
+if Text and Text:match('(.*)/deldelcreatorr') and DevBot(data) then
+if tonumber(Text:match('(.*)/delcreatorr')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."creator"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنشئين الاساسيين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delassaseen') and DevBot(data) then
+if tonumber(Text:match('(.*)/delassaseen')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Basic:Constructor"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنشئين الاساسيين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delmnsh') and BasicConstructor(data) then
+if tonumber(Text:match('(.*)/delmnsh')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Constructor"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنشئين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delmoder') and Constructor(data) then
+if tonumber(Text:match('(.*)/delmoder')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Manager"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المدراء في المجموعه")
+end
+end
+if Text and Text:match('(.*)/deladmin') and Owner(data) then
+if tonumber(Text:match('(.*)/deladmin')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Mod:User"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح الادمنيه في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delvips') and Addictive(data) then
+if tonumber(Text:match('(.*)/delvips')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Special:User"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المميزين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
+if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:List:Cmd:Group:New"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح الاوامر المضافه في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
+if tonumber(Text:match('(.*)/delcleanerr')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:MN:TF"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المنظفين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delbanall') and DevBot(data) then
+if tonumber(Text:match('(.*)/delbanall')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:GBan:User")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المحظورين عام من البوت")
+end
+end
+if Text and Text:match('(.*)/delban') and Addictive(data) then
+if tonumber(Text:match('(.*)/delban')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Ban:User"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المحظورين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delktm') and Addictive(data) then
+if tonumber(Text:match('(.*)/delktm')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:Muted:User"..data.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "⌔┆تم مسح المكتومين في المجموعه")
+end
+end
+
 if Text and Text:match('(.*)/mute_text') then
 if tonumber(Text:match('(.*)/mute_text')) == tonumber(data.sender_user_id_) then
 database:set(bot_id.."LaricA:Lock:text"..data.chat_id_,true) 
