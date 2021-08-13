@@ -476,6 +476,7 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
 end
+
 function s_api(web) 
 local info, res = https.request(web) 
 local req = json:decode(info) 
@@ -3139,7 +3140,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Ban:User"..msg.chat_id_)
-t = "\n• قائمة محظورين المجموعه \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة محظورين المجموعه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -3149,9 +3150,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد محظورين"
+t = "⌔┆لا يوجد محظورين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listban",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end 
 
 if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevLaricA(msg) then
