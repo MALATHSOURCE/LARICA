@@ -288,6 +288,180 @@ chat_id_=chat,
 message_ids_=id
 },func or dl_cb,nil)
 end
+function SendMsg_Msgeeslist(status,chat_id,user_id,msg_id,text)
+local msg_idd = msg_id/2097152/0.5
+local listsudo = database:smembers(bot_id.."Matrix:Sudo:User")
+local listasa = database:smembers(bot_id.."Matrix:Basic:Constructor"..chat_id)
+local listmnsh = database:smembers(bot_id.."Matrix:Constructor"..chat_id)
+local listmder = database:smembers(bot_id.."Matrix:Manager"..chat_id)
+local listadmin = database:smembers(bot_id.."Matrix:Mod:User"..chat_id)
+local listvip = database:smembers(bot_id.."Matrix:Special:User"..chat_id)
+local listbans = database:smembers(bot_id.."Matrix:GBan:User")
+local listban = database:smembers(bot_id.."Matrix:Ban:User"..chat_id)
+local listktm = database:smembers(bot_id.."Matrix:Muted:User"..chat_id)
+local listcleanerr = database:smembers(bot_id.."Matrix:MN:TF"..msg.chat_id_)
+local listCmdd = database:smembers(bot_id.."Matrix:List:Cmd:Group:New"..msg.chat_id_.."")
+local listcreatorr = database:smembers(bot_id.."creator"..msg.chat_id_)
+local listDevvrr = database:smembers(bot_id.."TSudo:User")
+if status == "listsudo" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المطورين : '..#listsudo, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المطورين', callback_data=user_id.."/delsudos"},
+},
+
+}
+elseif status == "listDevvrr" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد الثانويين : '..#listDevvrr, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح الثانويين', callback_data=user_id.."/delDevv"},
+},
+
+}
+elseif status == "listcreatorr" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المالكين : '..#listcreatorr, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المالكين', callback_data=user_id.."/delcreatorr"},
+},
+
+}
+elseif status == "listasa" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المنشئين الاساسيين : '..#listasa, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المنشئين الاساسيين', callback_data=user_id.."/delassaseen"},
+},
+
+}
+elseif status == "listmnsh" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المنشئين : '..#listmnsh, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المنشئين', callback_data=user_id.."/delmnsh"},
+},
+
+}
+elseif status == "listmder" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المدراء : '..#listmder, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المدراء', callback_data=user_id.."/delmoder"},
+},
+
+}
+elseif status == "listadmin" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد الادمنيه : '..#listadmin, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح الادمنيه', callback_data=user_id.."/deladmin"},
+},
+
+}
+elseif status == "listvip" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المميزين : '..#listvip, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المميزين', callback_data=user_id.."/delvips"},
+},
+
+}
+elseif status == "listcleanerr" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المنظفين : '..#listcleanerr, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المنظفين', callback_data=user_id.."/delcleanerr"},
+},
+
+}
+elseif status == "listCmdd" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد الاوامر المضافه : '..#listCmdd, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح الاوامر المضافه', callback_data=user_id.."/delCmdd"},
+},
+
+}
+elseif status == "listbans" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المحظورين عام : '..#listbans, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المحظورين عام', callback_data=user_id.."/delbanall"},
+},
+
+}
+elseif status == "listban" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المحظورين : '..#listban, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المحظورين', callback_data=user_id.."/delban"},
+},
+
+}
+elseif status == "listktm" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌔┆عدد المكتومين : '..#listktm, callback_data=user_id..""},
+},
+{
+{text = '⌔┆مسح المكتومين', callback_data=user_id.."/delktm"},
+},
+
+}
+end
+return https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. chat_id .. '&text=' .. URL.escape(text).."&reply_to_message_id="..msg_idd.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+function Edit_Msgees(status,chat_id,user_id,msg_id,text)
+local msg_idd = msg_id/2097152/0.5
+if status == "sendok" then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'القائمة الرئيسيه', callback_data=user_id.."/homeaddwd"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..chat_id..'&text='..URL.escape(text)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
+end
+end
+
 function getInputFile(file) 
 if file:match("/") then 
 infile = {ID = "InputFileLocal", 
@@ -2924,9 +3098,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد مميزين"
+t = "⌔┆لا يوجد مميزين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listvip",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("المكتومين") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
