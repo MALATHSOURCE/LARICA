@@ -3047,7 +3047,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Manager"..msg.chat_id_)
-t = "\n• قائمة المدراء \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة المدراء \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -3057,9 +3057,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد مدراء"
+t = "⌔┆لا يوجد مدراء"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listmder",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("الادمنيه") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
