@@ -2791,7 +2791,7 @@ return false
 end
 if text == ("الثانويين") and DevLaricA(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
-t = "\n• قائمة مطورين الثانويين للبوت \n  ━═━═━═━\n"
+t = "\n*⌔┆قائمة مطورين الثانويين للبوت *\n*𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄*\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -2801,9 +2801,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد مطورين ثانويين"
+t = "*⌔┆لا يوجد مطورين ثانويين*"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listDevvrr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("مسح الثانويين") and VIP_DeV(msg) then
 database:del(bot_id.."DEV:Sudo:T")
@@ -2963,7 +2964,7 @@ send(msg.chat_id_, msg.id_, "\n• تم مسح المحظورين")
 end
 if text == ("قائمه العام") and DevLaricA(msg) then
 local list = database:smembers(bot_id.."LaricA:GBan:User")
-t = "\n• قائمة المحظورين عام \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة المحظورين عام \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -2973,14 +2974,13 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد محظورين عام"
+return send(msg.chat_id_, msg.id_, "⌔┆لا يوجد محظورين عام")
 end
-send(msg.chat_id_, msg.id_, t)
-return false
+return SendMsg_Msgeeslist("listbans",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("المطورين") and DevLaricA(msg) then
 local list = database:smembers(bot_id.."LaricA:Sudo:User")
-t = "\n• قائمة مطورين البوت \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة مطورين البوت \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -2990,13 +2990,13 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد مطورين"
+send(msg.chat_id_, msg.id_,"⌔┆لا يوجد مطورين")
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listsudo",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == "المنشئين الاساسين" and DevBot(msg) then
 local list = database:smembers(bot_id.."LaricA:Basic:Constructor"..msg.chat_id_)
-t = "\n• قائمة المنشئين الاساسين \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة المنشئين الاساسين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -3006,10 +3006,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد منشئين اساسيين"
+t = "⌔┆لا يوجد منشئين اساسيين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
-return false
+return SendMsg_Msgeeslist("listasa",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("المنشئين") and BasicConstructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -3022,7 +3022,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Constructor"..msg.chat_id_)
-t = "\n• قائمة المنشئين \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة المنشئين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -3032,9 +3032,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد منشئين"
+t = "⌔┆لا يوجد منشئين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listmnsh",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("المدراء") and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
@@ -3073,7 +3074,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Mod:User"..msg.chat_id_)
-t = "\n• قائمة الادمنيه \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة الادمنيه \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -3083,9 +3084,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد ادمنيه"
+t = "⌔┆لا يوجد ادمنيه"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listadmin",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."LaricA:Special:User"..msg.chat_id_)
@@ -3115,7 +3117,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Muted:User"..msg.chat_id_)
-t = "\n• قائمة المكتومين \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة المكتومين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
@@ -3125,9 +3127,10 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد مكتومين"
+t = "⌔┆لا يوجد مكتومين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
+return SendMsg_Msgeeslist("listktm",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 
 if text == ("المحظورين") then  
@@ -3310,20 +3313,20 @@ end
 
 if text == "المالكين" and DevBot(msg) then
 local list = database:smembers(bot_id.."creator"..msg.chat_id_)
-t = "\n📋꒐ قائمة مالكين المجموعه \n  ━═━═━═━\n"
+t = "\n⌔┆قائمة المالكين \n𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄𓐄\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."User:Name" .. v)
+local username = database:get(bot_id.."LaricA:User:Name" .. v)
 if username then
-t = t..""..k.."↬• [@"..username.."]\n"
+t = t..""..k.."- ([@"..username.."])\n"
 else
 t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "*• لا يوجد مالكين*"
+t = "⌔┆لا يوجد مالكين"
+return send(msg.chat_id_, msg.id_, t)
 end
-send(msg.chat_id_, msg.id_, t)
-return false
+return SendMsg_Msgeeslist("listcreatorr",msg.chat_id_,msg.sender_user_id_,msg.id_, t)
 end
 if text == "مسح قائمه المالكين" and DevBot(msg) then
 database:del(bot_id.."creator"..msg.chat_id_)
