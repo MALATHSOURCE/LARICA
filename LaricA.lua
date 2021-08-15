@@ -11290,6 +11290,48 @@ local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local DAata = data.payload_.data_
 local Text = data.payload_.data_
+if Text and Text:match('(.*)/unktm(.*)') then
+local Userid = {Text:match('(.*)/unktm(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+database:srem(bot_id.."LaricA:Muted:User"..data.chat_id_, Userid[2])
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الكتم عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
+if Text and Text:match('(.*)/unban(.*)') then
+local Userid = {Text:match('(.*)/unban(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+database:srem(bot_id.."LaricA:Ban:User"..data.chat_id_, Userid[2])
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الحظر عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
+if Text and Text:match('(.*)/unkkid(.*)') then
+local Userid = {Text:match('(.*)/unkkid(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. Userid[2] .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء التقييد عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
+if Text and Text:match('(.*)/unktm(.*)') then
+local Userid = {Text:match('(.*)/unktm(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+database:srem(bot_id.."LaricA:Muted:User"..data.chat_id_, Userid[2])
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الكتم عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
+if Text and Text:match('(.*)/unban(.*)') then
+local Userid = {Text:match('(.*)/unban(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+database:srem(bot_id.."LaricA:Ban:User"..data.chat_id_, Userid[2])
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء الحظر عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
+if Text and Text:match('(.*)/unkkid(.*)') then
+local Userid = {Text:match('(.*)/unkkid(.*)')}
+if tonumber(Userid[1]) == tonumber(data.sender_user_id_) then
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. data.chat_id_ .. "&user_id=" .. Userid[2] .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape('*- تم الغاء التقييد عنه*')..'&message_id='..msg_idd..'&parse_mode=markdown') 
+end
+end
 
 if Text and Text:match('(.*)/delDevv') and VIP_DeV(data) then
 if tonumber(Text:match('(.*)/delDevv')) == tonumber(data.sender_user_id_) then
@@ -13180,7 +13222,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 end
 if text and text ~="نسبة الزحف" and database:get(bot_id..":"..msg.sender_user_id_..":zff_Bots"..msg.chat_id_) == "sendonoe" then
-numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","🌝😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
+numj = {"🤣 10","🥰 20 ","😶 30","🤔 35","😝 75","😴 34","😏 66","😕 82","?? 23","🌚😹 19","😹😔 55","😘😹 80","☹️😹 63","??😹 32","☺️😹 27","😍😂 89","😎😂 99","🤣 98","🌚😂 79","😔😹 100","💘🌚 8","😎 3","😔 6","☹️ 0",};
 sendzff = numj[math.random(#numj)]
 local Text = '📥┇اليك النتائج الخـاصة :\n\n📮┇نسبة الزحف لـ : *'..text..'*'
 keyboard = {} 
