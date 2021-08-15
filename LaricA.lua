@@ -4002,38 +4002,55 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'⌔┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
 function Function_LaricA(extra, result, success)
-if result.sender_user_id_ == tonumber(1573309498) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+if result.sender_user_id_ == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(18781544301100) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+if result.sender_user_id_ == tonumber(111101100) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"*⌔┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !*") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"*⌔┆البوت ليس ادمن يرجى ترقيتي !*") 
 return false  
 end
 database:sadd(bot_id.."LaricA:Ban:User"..msg.chat_id_, result.sender_user_id_)
-Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم حظره من المجموعه")  
+Kick_Group(result.chat_id_, result.sender_user_id_) 
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unban'..result.sender_user_id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔┆تم حظره من المجموعه*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 end,nil)   
 end
 end
@@ -4361,52 +4378,69 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^حظر @(.*)$")
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'⌔┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
 function Function_LaricA(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(1878154430) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+if result.id_ == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if result.id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if result.id_ == tonumber(1573309498) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+if result.id_ == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"⌔┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"⌔┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"⌔┆البوت ليس ادمن يرجى ترقيتي !") 
 return false  
 end
 database:sadd(bot_id.."LaricA:Ban:User"..msg.chat_id_, result.id_)
 Kick_Group(msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم حظره من المجموعه")  
+tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unban'..result.id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔┆تم حظره من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 end,nil)   
 end
 else
-send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "⌔┆لا يوجد حساب بهاذا المعرف")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
@@ -4419,42 +4453,59 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^حظر (%d+)$") 
 if not Constructor(msg) and database:get(bot_id.."Ban:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'• لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
+send(msg.chat_id_, msg.id_,'⌔┆لقد تم تعطيل الحظر و الطرد من قبل المنشئين')
 return false
 end
 if userid == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if userid == tonumber(1573309498) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+if userid == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(1878154430) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+if userid == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
+send(msg.chat_id_, msg.id_,"⌔┆ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !") 
 return false  
 end
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"⌔┆البوت ليس ادمن يرجى ترقيتي !") 
 return false  
 end
 database:sadd(bot_id.."LaricA:Ban:User"..msg.chat_id_, userid)
 Kick_Group(msg.chat_id_, userid)  
-Reply_Status(msg,userid,"reply","• تم حظره من المجموعه")  
+tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unban'..userid}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔┆تم حظره من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 end,nil)   
 end
 return false
@@ -4465,18 +4516,24 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "• انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "⌔┆انا لست محظورا \n") 
 return false 
 end
 database:srem(bot_id.."LaricA:Ban:User"..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء حظره من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","⌔┆تم الغاء حظره من هنا")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
@@ -4488,22 +4545,28 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^الغاء حظر @(.*)$") 
 function Function_LaricA(extra, result, success)
 if result.id_ then
 if tonumber(result.id_) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "• انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "⌔┆انا لست محظورا \n") 
 return false 
 end
 database:srem(bot_id.."LaricA:Ban:User"..msg.chat_id_, result.id_)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-Reply_Status(msg,result.id_,"reply","• تم الغاء حظره من هنا")  
+Reply_Status(msg,result.id_,"reply","⌔┆تم الغاء حظره من هنا")  
 else
-send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "⌔┆لا يوجد حساب بهاذا المعرف")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
@@ -4516,18 +4579,24 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^الغاء حظر (%d+)$") 
 if tonumber(userid) == tonumber(bot_id) then
-send(msg.chat_id_, msg.id_, "• انا لست محظورا \n") 
+send(msg.chat_id_, msg.id_, "⌔┆انا لست محظورا \n") 
 return false 
 end
 database:srem(bot_id.."LaricA:Ban:User"..msg.chat_id_, userid)
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = userid, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-Reply_Status(msg,userid,"reply","• تم الغاء حظره من هنا")  
+Reply_Status(msg,userid,"reply","⌔┆تم الغاء حظره من هنا")  
 return false
 end
 
@@ -4537,33 +4606,50 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
-if result.sender_user_id_ == tonumber(1573309498) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
+if result.sender_user_id_ == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(1878154430) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
+if result.sender_user_id_ == tonumber(11110) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
 if result.sender_user_id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت  \n")
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت  \n")
 return false 
 end
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 return false 
 end     
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"⌔┆البوت ليس ادمن يرجى ترقيتي !") 
 return false  
 end
 database:sadd(bot_id.."LaricA:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم كتمه من هنا")  
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unktm'..result.sender_user_id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."*⌔┆تم كتمه من المجموعه*").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
@@ -4574,33 +4660,50 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^كتم @(.*)$")
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"⌔┆البوت ليس ادمن يرجى ترقيتي !") 
 return false  
 end
 function Function_LaricA(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(1573309498) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+if result.id_ == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
 if Rank_Checking(result.id_, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end     
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"⌔┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."LaricA:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم كتمه من هنا")  
+tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unktm'..result.id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔┆تم كتمه من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 else
-send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "⌔┆لا يوجد حساب بهاذا المعرف")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
@@ -4612,24 +4715,41 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^كتم (%d+)$")
-if userid == tonumber(1573309498) then
-send(msg.chat_id_, msg.id_, "• لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
+if userid == tonumber(114518657) then
+send(msg.chat_id_, msg.id_, "⌔┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
 if Rank_Checking(userid, msg.chat_id_) == true then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي !") 
+send(msg.chat_id_, msg.id_,"⌔┆البوت ليس ادمن يرجى ترقيتي !") 
 return false  
 end
 database:sadd(bot_id.."LaricA:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم كتمه من هنا")  
+tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unktm'..userid}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔┆تم كتمه من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 end
 return false
 end
@@ -4639,13 +4759,19 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
 database:srem(bot_id.."LaricA:Muted:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.sender_user_id_,"reply","*⌔┆تم الغاء كتمه من هنا*")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
@@ -4655,9 +4781,9 @@ local username = text:match("^الغاء كتم @(.*)$")
 function Function_LaricA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."LaricA:Muted:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم الغاء كتمه من هنا")  
+Reply_Status(msg,result.id_,"reply","*⌔┆تم الغاء كتمه من هن*ا")  
 else
-send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"*⌔┆لا يوجد حساب بهاذا المعرف*")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
@@ -4670,13 +4796,19 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^الغاء كتم (%d+)$") 
 database:srem(bot_id.."LaricA:Muted:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم الغاء كتمه من هنا")  
+Reply_Status(msg,userid,"reply","*⌔┆تم الغاء كتمه من هنا*")  
 return false
 end
 if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -4713,22 +4845,43 @@ if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Addictive
 database:del(bot_id..'LaricA:lock:Fshar'..msg.chat_id_) 
 Reply_Status(msg,msg.sender_user_id_,"lock","• تـم فـتح الفشار\n")  
 end
+if text == 'فتح الفشار' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+database:del(bot_id..'LaricA:lock:Fshar'..msg.chat_id_) 
+Reply_Status(msg,msg.sender_user_id_,"lock","⌔┆تـم فـتح الفشار\n")  
+end
 if text == ("تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تقييده في المجموعه")  
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unkkid'..result.sender_user_id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔┆تم تقييده من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
@@ -4741,25 +4894,42 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n•اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^تقيد @(.*)$")
 function Function_LaricA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"⌔┆عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
 return false 
 end      
 if Rank_Checking(result.id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(result.id_,msg.chat_id_).." )")
 return false 
 end      
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تقييده في المجموعه")  
+tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unkkid'..result.id_}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔┆تم تقييده من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
 else
-send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_,"⌔┆لا يوجد حساب بهاذا المعرف")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
@@ -4772,16 +4942,34 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^تقيد (%d+)$")
 if Rank_Checking(userid, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+send(msg.chat_id_, msg.id_, "\n*⌔┆لا يمكنك (طرد ꒐ حظر ꒐ كتم ꒐ تقييد) *( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
-Reply_Status(msg,userid,"reply","• تم تقييده في المجموعه")  
+tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
+local UserName = (data.username_ or "LaricA_Source")
+local NameUserr = "\n*⌔┆المستخدم -›* ["..data.first_name_.."](T.me/"..UserName..")\n"
+local keyboard = {}
+keyboard.inline_keyboard = {
+{
+{text = 'الغاء الامر',callback_data=msg.sender_user_id_..'/unkkid'..userid}
+}
+}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(NameUserr.."⌔┆تم تقييده من المجموعه").."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end,nil)   
+
 end
 return false
 end
@@ -4792,13 +4980,19 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,result.sender_user_id_,"reply","• تم الغاء تقييده")  
+Reply_Status(msg,result.sender_user_id_,"reply","⌔┆تم الغاء تقييده")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_LaricA, nil)
 return false
@@ -4810,17 +5004,23 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^الغاء تقيد @(.*)$")
 function Function_LaricA(extra, result, success)
 if result.id_ then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,result.id_,"reply","• تم الغاء تقييده")  
+Reply_Status(msg,result.id_,"reply","⌔┆تم الغاء تقييده")  
 else
-send(msg.chat_id_, msg.id_, "• لا يوجد حساب بهاذا المعرف")
+send(msg.chat_id_, msg.id_, "⌔┆لا يوجد حساب بهاذا المعرف")
 end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_LaricA, nil)
@@ -4833,13 +5033,19 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت.*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^الغاء تقيد (%d+)$")
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
-Reply_Status(msg,userid,"reply","• تم الغاء تقييده")  
+Reply_Status(msg,userid,"reply","⌔┆تم الغاء تقييده")  
 return false
 end
 if text == ("طرد") and msg.reply_to_message_id_ ~=0 and Addictive(msg) then  
@@ -5352,7 +5558,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro ?? \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
