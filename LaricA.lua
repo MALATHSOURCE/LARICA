@@ -314,9 +314,9 @@ local listvip = database:smembers(bot_id.."LaricA:Special:User"..chat_id)
 local listbans = database:smembers(bot_id.."LaricA:GBan:User")
 local listban = database:smembers(bot_id.."LaricA:Ban:User"..chat_id)
 local listktm = database:smembers(bot_id.."LaricA:Muted:User"..chat_id)
-local listcleanerr = database:smembers(bot_id.."LaricA:MN:TF"..msg.chat_id_)
-local listCmdd = database:smembers(bot_id.."LaricA:List:Cmd:Group:New"..msg.chat_id_.."")
-local listcreatorr = database:smembers(bot_id.."creator"..msg.chat_id_)
+local listcleanerr = database:smembers(bot_id.."LaricA:MN:TF"..chat_id)
+local listCmdd = database:smembers(bot_id.."LaricA:List:Cmd:Group:New"..chat_id.."")
+local listcreatorr = database:smembers(bot_id.."creator"..chat_id)
 local listDevvrr = database:smembers(bot_id.."TSudo:User")
 if status == "listsudo" then
 keyboard = {} 
