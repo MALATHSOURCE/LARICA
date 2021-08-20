@@ -11392,7 +11392,7 @@ end
 if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
 if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."LaricA:List:Cmd:Group:New"..msg.chat_id_)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "• تم مسح الاوامر المضافه في المجموعه")
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "• تم مسح الاوامر المضافه في المجموعة")
 end
 end
 if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
