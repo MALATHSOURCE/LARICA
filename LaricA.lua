@@ -11389,13 +11389,6 @@ database:del(bot_id.."LaricA:Special:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "• تم مسح المميزين في المجموعه")
 end
 end
-if Text and Text:match('(.*)/delCmdd') and Addictive(data) then
-if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
-database:del(bot_id.."LaricA:List:Cmd:Group:New"..msg.chat_id_)
-database:del(bot_id.."LaricA:Set:Cmd:Group:New1"..msg.chat_id_..":"..v)
-Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "• تم مسح الاوامر المضافه في المجموعة")
-end
-end
 if Text and Text:match('(.*)/delcleanerr') and Addictive(data) then
 if tonumber(Text:match('(.*)/delcleanerr')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."LaricA:MN:TF"..msg.chat_id_)
@@ -11418,6 +11411,12 @@ if Text and Text:match('(.*)/delktm') and Addictive(data) then
 if tonumber(Text:match('(.*)/delktm')) == tonumber(data.sender_user_id_) then
 database:del(bot_id.."LaricA:Muted:User"..data.chat_id_)
 Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "• تم مسح المكتومين في المجموعه")
+end
+end
+if Text and Text:match('(.*)/delCmdd') and Owner(data) then
+if tonumber(Text:match('(.*)/delCmdd')) == tonumber(data.sender_user_id_) then
+database:del(bot_id.."LaricA:List:Cmd:Group:New"..msg.chat_id_)
+Edit_Msgees("sendok",data.chat_id_,data.sender_user_id_,data.message_id_, "• تم مسح الاوامر المضافه في المجموعة")
 end
 end
 
