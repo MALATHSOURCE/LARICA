@@ -5732,19 +5732,14 @@ database:hset(bot_id.."LaricA:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Nu
 send(msg.chat_id_, msg.id_,"• تم وضع زمن التكرار ("..Num..")") 
 end
 if text == "ضع رابط" or text == 'وضع رابط' then
+if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
-local keyboard = {}
-keyboard.inline_keyboard = {{
-{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+send(msg.chat_id_, msg.id_,'  *˛ Hi Pro 🦇* \n* ˛  Jin * ['..database:get(bot_id..'add:ch:username')..']')
 end
-
 return false
 end
 send(msg.chat_id_,msg.id_," *• حسنآ ارسل اليه الرابط الان*")
@@ -11020,7 +11015,7 @@ return false
 end
 if text == 'قناة السورس 📡 .' then
 Text = [[
-*𝗝ْ𝗨ِst #َ𝗚𝗿ِ𝗼𝘂ِ??َُ!ْ𝗦 𝗧ِ𝘂ِ𝗺ّ𝗯َ𝗹َُ!r⤹* [◜𝗟𝗮ََِ𝗥ِ!َْ𝗖𝗮 ُ𝗧َ𝗘ِ𝗮َِ𝗺 🦂](t.me/LaRiCaTeam)
+*𝗝ْ𝗨ِst #َ𝗚𝗿ِ𝗼𝘂ِ𝗽َُ!ْ𝗦 𝗧ِ𝘂ِ𝗺ّ𝗯َ𝗹َُ!r⤹* [◜𝗟𝗮ََِ𝗥ِ!َْ𝗖𝗮 ُ𝗧َ𝗘ِ𝗮َِ𝗺 🦂](t.me/LaRiCaTeam)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
