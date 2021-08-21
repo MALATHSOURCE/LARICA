@@ -1820,10 +1820,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end  
+end
 database:set(bot_id.."LaricA:Lock:tagservrbot"..msg.chat_id_,true)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
@@ -1839,10 +1845,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end 
+end
 database:del(bot_id.."LaricA:Lock:AddMempar"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح اضافة الاعضاء")  
 return false
@@ -1853,10 +1865,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end 
+end
 database:del(bot_id.."LaricA:Lock:text"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح الدردشه")  
 return false
@@ -1867,10 +1885,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end 
+end
 database:del(bot_id.."LaricA:Lock:Join"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح دخول الاعضاء")  
 return false
@@ -1881,10 +1905,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end 
+end
 database:del(bot_id.."LaricA:Lock:Bot:kick"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فـتح البوتات")  
 return false
@@ -1912,10 +1942,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end 
+end
 database:del(bot_id.."LaricA:Lock:Bot:kick"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","🍃\n• تم فـتح البوتات")  
 return false
@@ -1926,10 +1962,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end  
+end
 database:del(bot_id.."LaricA:Lock:tagservr"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فـتح الاشعارات")  
 return false
@@ -1974,10 +2016,16 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
-end 
+end
 database:del(bot_id.."LaricA:Lock:tagservrbot"..msg.chat_id_)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
@@ -1993,8 +2041,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:set(bot_id.."LaricA:Lock:Link"..msg.chat_id_,"del")  
@@ -2036,8 +2090,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:set(bot_id.."LaricA:Lock:User:Name"..msg.chat_id_,"del")  
@@ -2065,8 +2125,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Lock:User:Name"..msg.chat_id_)  
@@ -2207,8 +2273,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 if Addictive(msg) then 
@@ -2268,8 +2340,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:set(bot_id.."LaricA:Lock:geam"..msg.chat_id_,"del")  
@@ -2297,8 +2375,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Lock:geam"..msg.chat_id_)  
@@ -2429,8 +2513,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:set(bot_id.."LaricA:Lock:forward"..msg.chat_id_,"del")  
@@ -2458,8 +2548,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Lock:forward"..msg.chat_id_)  
@@ -2830,8 +2926,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Constructor"..msg.chat_id_)
@@ -2844,8 +2946,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Manager"..msg.chat_id_)
@@ -2863,8 +2971,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Mod:User"..msg.chat_id_)
@@ -2906,8 +3020,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Manager"..msg.chat_id_)
@@ -2930,8 +3050,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Special:User"..msg.chat_id_)
@@ -2942,8 +3068,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 database:del(bot_id.."LaricA:Muted:User"..msg.chat_id_)
@@ -3017,8 +3149,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Constructor"..msg.chat_id_)
@@ -3043,8 +3181,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Manager"..msg.chat_id_)
@@ -3069,8 +3213,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Mod:User"..msg.chat_id_)
@@ -3139,8 +3289,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local list = database:smembers(bot_id.."LaricA:Ban:User"..msg.chat_id_)
@@ -3480,8 +3636,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
@@ -3497,8 +3659,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^تنزيل منشئ اساسي @(.*)$")
@@ -3520,8 +3688,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
@@ -3536,8 +3710,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
@@ -3552,8 +3732,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^رفع منشئ @(.*)$")
@@ -3578,8 +3764,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^رفع منشئ (%d+)$")
@@ -3600,8 +3792,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^تنزيل منشئ @(.*)$")
@@ -3622,8 +3820,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^تنزيل منشئ (%d+)$")
@@ -3637,8 +3841,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
@@ -3654,8 +3864,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^رفع مدير @(.*)$") 
@@ -3681,8 +3897,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^رفع مدير (%d+)$") 
@@ -3696,8 +3918,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
@@ -3713,8 +3941,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^تنزيل مدير @(.*)$")
@@ -3735,8 +3969,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^تنزيل مدير (%d+)$") 
@@ -3751,8 +3991,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3772,8 +4018,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^رفع ادمن @(.*)$")
@@ -3802,8 +4054,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^رفع ادمن (%d+)$")
@@ -3821,8 +4079,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
@@ -3838,8 +4102,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^تنزيل ادمن @(.*)$") 
@@ -3860,8 +4130,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
@@ -3876,8 +4152,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -3897,8 +4179,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^رفع مميز @(.*)$") 
@@ -3928,8 +4216,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^رفع مميز (%d+)$")
@@ -3948,8 +4242,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 function Function_LaricA(extra, result, success)
@@ -3965,8 +4265,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local username = text:match("^تنزيل مميز @(.*)$") 
@@ -3987,8 +4293,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇\n ˛  Jin  ← ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local userid = text:match("^تنزيل مميز (%d+)$") 
@@ -5420,14 +5732,19 @@ database:hset(bot_id.."LaricA:flooding:settings:"..msg.chat_id_ ,"floodtime" ,Nu
 send(msg.chat_id_, msg.id_,"• تم وضع زمن التكرار ("..Num..")") 
 end
 if text == "ضع رابط" or text == 'وضع رابط' then
-if msg.reply_to_message_id_ == 0  and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'  *˛ Hi Pro 🦇* \n* ˛  Jin * ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 send(msg.chat_id_,msg.id_," *• حسنآ ارسل اليه الرابط الان*")
@@ -5955,8 +6272,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local list = database:smembers(bot_id.."LaricA:List:Cmd:Group:New"..msg.chat_id_.."")
@@ -5981,8 +6304,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ˛ Hi Pro 🦇 \n˛ Jin ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 if Constructor(msg) then 
@@ -8659,7 +8988,7 @@ return false
 end
 if database:get(bot_id.."Tshak:Lock:Games"..msg.chat_id_) then
 database:del(bot_id.."Tshak:Set:Sma"..msg.chat_id_)
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","•","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","??","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","•","🎗","🏵","•","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","??","🌡","??","•","📍","📓","📗","•","📅","📪","•","•","📭","⏰","📺","🎚","☎️","•"}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","•","🍞","🥨","🍟","🧀","🥚","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","🍵","🥤","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","•","🎗","🏵","•","🏆","🥌","🛷","🚗","🚌","🏎","🚓","🚑","🚚","🚛","🚜","🇮🇶","⚔","🛡","??","🌡","??","•","📍","📓","📗","•","📅","📪","•","•","📭","⏰","📺","🎚","☎️","•"}
 SM = Random[math.random(#Random)]
 database:set(bot_id.."Tshak:Random:Sm"..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,"• اسرع واحد يدز هاذا السمايل ? ~ {`"..SM.."`}")
@@ -10090,8 +10419,14 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قناه البوت. \n• اشتࢪڪ هنا عمࢪي ←  ['..database:get(bot_id..'add:ch:username')..']')
+local titlech = (database:get(bot_id..'add:ch:title') or 'آشـترگ بآلقنآ‌‏هہ ')
+local keyboard = {}
+keyboard.inline_keyboard = {{
+{text = URL.escape(titlech),url='https://telegram.me/'..database:get(bot_id..'add:ch:username'):gsub("@","")}}}   
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape('*⌔┆عذࢪا عليڪ الاشتࢪاڪ في قناه البوت*').."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+
 return false
 end
 local Text =[[
@@ -10685,7 +11020,7 @@ return false
 end
 if text == 'قناة السورس 📡 .' then
 Text = [[
-*𝗝ْ𝗨ِst #َ𝗚𝗿ِ𝗼𝘂ِ𝗽َُ!ْ𝗦 𝗧ِ𝘂ِ𝗺ّ𝗯َ𝗹َُ!r⤹* [◜𝗟𝗮ََِ𝗥ِ!َْ𝗖𝗮 ُ𝗧َ𝗘ِ𝗮َِ𝗺 🦂](t.me/LaRiCaTeam)
+*𝗝ْ𝗨ِst #َ𝗚𝗿ِ𝗼𝘂ِ??َُ!ْ𝗦 𝗧ِ𝘂ِ𝗺ّ𝗯َ𝗹َُ!r⤹* [◜𝗟𝗮ََِ𝗥ِ!َْ𝗖𝗮 ُ𝗧َ𝗘ِ𝗮َِ𝗺 🦂](t.me/LaRiCaTeam)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
